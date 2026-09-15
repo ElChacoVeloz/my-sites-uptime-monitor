@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "id": "iserrano.sites-uptime-monitor",
+  "name": "My Sites Uptime Monitor",
+  "version": "1.0.0",
+  "author": "Isaac Serrano",
+  "description": "Green/red bar dot reflecting the HTTP status of up to 10 websites, with outage notifications.",
+  "kinds": [
+    "bar-widget"
+  ],
+  "entryPoints": {
+    "barWidget": "Panel.qml"
+  },
+  "barWidget": {
+    "displayName": "My Sites Uptime Monitor",
+    "description": "HTTP status dot for up to 10 websites, with a list, configuration, and outage notifications.",
+    "category": "Info",
+    "allowMultiple": false,
+    "defaultSection": "right"
+  }
+}
