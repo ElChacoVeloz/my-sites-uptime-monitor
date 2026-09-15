@@ -10,6 +10,12 @@ and shows a status dot in the top bar:
 Click the dot to open the live status list. Click the gear in the top-right
 corner to open the configuration page.
 
+## Screenshots
+
+| Status list | Configuration |
+| --- | --- |
+| ![Status list](assets/main-page.png) | ![Configuration](assets/settings-page.png) |
+
 ## Features
 
 - Up to 10 monitored websites, each with a **name** and a **URL**.
