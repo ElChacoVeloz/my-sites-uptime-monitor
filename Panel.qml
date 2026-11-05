@@ -6,7 +6,7 @@ import qs.Commons
 import qs.Ui
 import "Model.js" as Model
 
-// Bar dot + popup for up to 10 URL-monitored sites. Green when every
+// Bar globe with a status dot + popup for up to 10 URL-monitored sites. Green when every
 // configured site returns a successful HTTP response, red when one or more
 // don't. Click opens a panel with the live status list on top and the 10-slot
 // name/URL editor below
@@ -331,20 +331,23 @@ Panel {
     slotSize: Style.bar.statusSlot
     tooltipText: !root.hasSites ? "My Sites Uptime Monitor — no sites configured"
       : (root.anyDown ? "My Sites Uptime Monitor — some sites are down" : "My Sites Uptime Monitor — all sites up")
-    iconComponent: dotComponent
+    text: "󰖟"
     onPressed: function(b) { root.toggle() }
-  }
 
-  Component {
-    id: dotComponent
+    // Status badge on the lower-right edge of the globe glyph. It is offset from
+    // the button's center, where BarIconButton centers the glyph, so it holds its
+    // place in horizontal and vertical bars, and it shares the press feedback.
     Rectangle {
-      anchors.centerIn: parent
-      width: Math.max(7, Math.round(Style.font.body * 0.6))
+      readonly property real iconHalf: button.visualIconSize / 2
+      x: button.width / 2 + iconHalf - width + 2
+      y: button.height / 2 + iconHalf - height + 2
+      width: 7
       height: width
       radius: width / 2
+      scale: button.pressScale
       color: root.dotColor
       border.width: 1
-      border.color: Qt.rgba(0, 0, 0, 0.35)
+      border.color: Qt.rgba(0, 0, 0, 0.55)
     }
   }
 

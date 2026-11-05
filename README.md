@@ -1,13 +1,13 @@
 # My Sites Uptime Monitor
 
 An [Omarchy](https://omarchy.org/) bar plugin that checks up to 10 website URLs
-and shows a status dot in the top bar:
+and shows a globe icon with a status dot in the top bar:
 
 - 🟢 **green** — every configured website returns a successful HTTP response.
 - 🔴 **red** — one or more configured websites fail their HTTP check.
 - ⚪ **grey** — nothing is configured yet, or the first check has not completed.
 
-Click the dot to open the live status list. Click the gear in the top-right
+Click the icon to open the live status list. Click the gear in the top-right
 corner to open the configuration page.
 
 ## Screenshots
