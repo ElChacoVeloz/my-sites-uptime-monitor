@@ -51,6 +51,48 @@ The widget is placed in the bar's right section by default. Move it with:
 omarchy bar move iserrano.sites-uptime-monitor --section <left|center|right>
 ```
 
+## Updating
+
+If you installed with `omarchy plugin add` or `git clone` (both shown above),
+pull the latest version with:
+
+```bash
+omarchy plugin update iserrano.sites-uptime-monitor
+```
+
+It shows the diff and asks before applying it. Add `--yes` to skip the
+prompt. Run `omarchy plugin update` with no id to update every git-managed
+plugin at once. After the update the plugin is validated (and rolled back if
+it fails validation), and the shell rescans its plugins. If the bar still
+shows the old widget, restart the shell:
+
+```bash
+omarchy restart shell
+```
+
+Check the installed version with `omarchy plugin list`.
+
+Troubleshooting:
+
+- **"is not a git checkout"**: the plugin was copied in by hand, so there is
+  no remote to pull from. Reinstall it once with git, and from then on
+  `update` works. Your saved sites are kept, because they live outside the
+  plugin folder (see below).
+
+  ```bash
+  omarchy plugin remove iserrano.sites-uptime-monitor --yes
+  omarchy plugin add https://github.com/elchacoveloz/my-sites-uptime-monitor.git --enable --yes
+  ```
+
+- **"cannot fast-forward"**: there are local edits in
+  `~/.config/omarchy/plugins/iserrano.sites-uptime-monitor`. Discard them and
+  run the update again:
+
+  ```bash
+  git -C ~/.config/omarchy/plugins/iserrano.sites-uptime-monitor reset --hard
+  omarchy plugin update iserrano.sites-uptime-monitor
+  ```
+
 ## Uninstallation
 
 Remove the plugin and unload it from Omarchy Shell:
